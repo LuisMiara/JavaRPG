@@ -10,5 +10,7 @@ package models;
  * @author gustavomiara
  */
 public class heroes {
+    int number;
+    int teste;
     
 }
