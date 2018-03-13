@@ -33,20 +33,13 @@ public class Arena extends javax.swing.JFrame {
         setTitle("JavaRPG - Arena");
         setPreferredSize(new java.awt.Dimension(900, 500));
         setResizable(false);
+        setSize(new java.awt.Dimension(900, 500));
+        getContentPane().setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpg"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(900, 500));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-6, 0, 910, 500);
 
         pack();
         setLocationRelativeTo(null);

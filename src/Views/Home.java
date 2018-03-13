@@ -5,12 +5,17 @@
  */
 package Views;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -22,6 +27,17 @@ public class Home extends javax.swing.JFrame {
      * Creates new form Home
      */
     public Home() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
         
     }
@@ -44,17 +60,21 @@ public class Home extends javax.swing.JFrame {
     */
     
     public class progresso implements ActionListener{
+        
 
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) {            
             int n = jProgressBar1.getValue();
             if(n < 100){
                 n = n + 3;
                 jProgressBar1.setValue(n);
+                jProgressBar1.setString(n + "%");
             }else{
                 timer.stop();
-                SelectedPlayers players = new SelectedPlayers();
-                players.setVisible(true);
+//                SelectedPlayers players = new SelectedPlayers();
+//                players.setVisible(true);
+                Main main = new Main();
+                main.setVisible(true);
                 dispose();
                 
             }
@@ -79,8 +99,11 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaRPG");
+        setMaximumSize(new java.awt.Dimension(500, 300));
+        setMinimumSize(new java.awt.Dimension(500, 300));
         setPreferredSize(new java.awt.Dimension(500, 300));
         setResizable(false);
+        setSize(new java.awt.Dimension(500, 300));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -90,8 +113,12 @@ public class Home extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 300));
         jPanel1.setLayout(null);
+
+        jProgressBar1.setBackground(new java.awt.Color(1, 1, 1));
+        jProgressBar1.setForeground(new java.awt.Color(255, 0, 0));
+        jProgressBar1.setStringPainted(true);
         jPanel1.add(jProgressBar1);
-        jProgressBar1.setBounds(55, 220, 397, 20);
+        jProgressBar1.setBounds(55, 220, 397, 22);
 
         jLabel1.setFont(new java.awt.Font("Cabin", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 3));
@@ -108,7 +135,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgHome.jpeg"))); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(0, 0, 500, 320);
+        jLabel4.setBounds(0, 0, 500, 300);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 500, 320);
@@ -119,9 +146,10 @@ public class Home extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        
         timer = new Timer(500, new progresso());
         timer.start();
-        providers.songs.startInitialSong();
+        providers.Songs.startInitialSong();
     }//GEN-LAST:event_formWindowOpened
 
     /**

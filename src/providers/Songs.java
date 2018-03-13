@@ -17,7 +17,7 @@ import sun.audio.AudioStream;
  *
  * @author gustavomiara
  */
-public class songs {
+public class Songs {
 
     static InputStream music;
     
@@ -26,8 +26,17 @@ public class songs {
     static public void startInitialSong(){
         try {
             music = new FileInputStream(new File("src/songs/javaRPG.wav"));
-            AudioStream audios = new AudioStream(music);
-            AudioPlayer.player.start(audios);
+//            AudioStream audios = new AudioStream(music);
+            AudioPlayer.player.start(music);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+            System.out.println("providers.songs.initialSong()" + e.getLocalizedMessage());
+        }
+    }
+    
+    static public void stopInitialSong(){
+        try {
+            AudioPlayer.player.stop(music);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
             System.out.println("providers.songs.initialSong()" + e.getLocalizedMessage());
