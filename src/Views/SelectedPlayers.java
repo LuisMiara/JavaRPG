@@ -5,6 +5,8 @@
  */
 package Views;
 
+import java.awt.Color;
+
 /**
  *
  * @author gustavomiara
@@ -15,7 +17,12 @@ public class SelectedPlayers extends javax.swing.JFrame {
      * Creates new form SelectedPlayers
      */
     public SelectedPlayers() {
+
         initComponents();
+        playerOneJpanel.setOpaque(true);
+        playerTwoJpanel.setOpaque(true);
+        playerOneJpanel.setBackground(new Color(0, 0, 0, 0));
+        playerTwoJpanel.setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
@@ -32,7 +39,7 @@ public class SelectedPlayers extends javax.swing.JFrame {
         heroeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        playerTwoJpanel = new javax.swing.JPanel();
         monsterButton1 = new javax.swing.JButton();
         heroeButton1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -44,7 +51,10 @@ public class SelectedPlayers extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        playerOneJpanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.red), "PLAYER 1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 0, 0))); // NOI18N
+        playerOneJpanel.setBackground(new java.awt.Color(254, 254, 254));
+        playerOneJpanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(251, 0, 0)), "PLAYER 1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(254, 6, 6))); // NOI18N
+        playerOneJpanel.setForeground(new java.awt.Color(254, 1, 1));
+        playerOneJpanel.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         playerOneJpanel.setPreferredSize(new java.awt.Dimension(584, 335));
 
         monsterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkglorysson.png"))); // NOI18N
@@ -95,8 +105,9 @@ public class SelectedPlayers extends javax.swing.JFrame {
         getContentPane().add(playerOneJpanel);
         playerOneJpanel.setBounds(12, 0, 584, 335);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(10, 0, 255)), "PLAYER 2", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(15, 1, 246))); // NOI18N
-        jPanel1.setPreferredSize(new java.awt.Dimension(576, 300));
+        playerTwoJpanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(255, 0, 0)), "PLAYER 2", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(246, 1, 4))); // NOI18N
+        playerTwoJpanel.setForeground(new java.awt.Color(255, 0, 0));
+        playerTwoJpanel.setPreferredSize(new java.awt.Dimension(576, 300));
 
         monsterButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkglorysson.png"))); // NOI18N
         monsterButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -112,28 +123,28 @@ public class SelectedPlayers extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout playerTwoJpanelLayout = new javax.swing.GroupLayout(playerTwoJpanel);
+        playerTwoJpanel.setLayout(playerTwoJpanelLayout);
+        playerTwoJpanelLayout.setHorizontalGroup(
+            playerTwoJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(playerTwoJpanelLayout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
                 .addComponent(monsterButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95)
                 .addComponent(heroeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        playerTwoJpanelLayout.setVerticalGroup(
+            playerTwoJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(playerTwoJpanelLayout.createSequentialGroup()
+                .addGroup(playerTwoJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(monsterButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(heroeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(12, 341, 584, 335);
+        getContentPane().add(playerTwoJpanel);
+        playerTwoJpanel.setBounds(12, 341, 584, 335);
 
         jButton1.setText("Arena");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -218,9 +229,9 @@ public class SelectedPlayers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton monsterButton;
     private javax.swing.JButton monsterButton1;
     private javax.swing.JPanel playerOneJpanel;
+    private javax.swing.JPanel playerTwoJpanel;
     // End of variables declaration//GEN-END:variables
 }
