@@ -20,3 +20,4 @@ nbproject/*
 *.swp
 *.DS_Store
 *.lock
+/bin/
