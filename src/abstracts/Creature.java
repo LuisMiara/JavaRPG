@@ -9,28 +9,29 @@ import interfaces.Generic;
 
 /**
  *
- * @author gustavomiara
+ * @author gustavomiara, quintanilhaedu
+ *
  */
 public abstract class Creature implements Generic {
         
     private String name;
-    private String classe;
-    private int nivel;
+    private String className;
+    private int level;
     private int life;
     private int magic;
-    private int force;
+    private int strength;
     private int agility;
     private int dexterity;
     private int intelligence;
     private int charisma;
 
-    public Creature(String name, String classe, int nivel, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
+    public Creature(String name, String className, int level, int life, int magic, int strength, int agility, int dexterity, int intelligence, int charisma) {
         this.name = name;
-        this.classe = classe;
-        this.nivel = nivel;
+        this.className = className;
+        this.level = level;
         this.life = life;
         this.magic = magic;
-        this.force = force;
+        this.strength = strength;
         this.agility = agility;
         this.dexterity = dexterity;
         this.intelligence = intelligence;
@@ -45,19 +46,19 @@ public abstract class Creature implements Generic {
     
     }
     
-    public void vivo(){
+    public void alive(){
     
     }
     
-    public void  lostLife(){
+    public void  losesLife(){
     
     }
     
-    public void revitalizar(){
+    public void revitalize(){
     
     }
     
-    public void descansar(){
+    public void rest(){
     
     }
     
