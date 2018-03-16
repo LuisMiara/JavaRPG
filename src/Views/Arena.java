@@ -27,6 +27,7 @@ public class Arena extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -35,11 +36,13 @@ public class Arena extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(900, 500));
         getContentPane().setLayout(null);
+        getContentPane().add(jProgressBar1);
+        jProgressBar1.setBounds(130, 370, 210, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpg"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(900, 500));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-6, 0, 910, 500);
+        jLabel1.setBounds(-6, 0, 1000, 510);
 
         pack();
         setLocationRelativeTo(null);
@@ -82,5 +85,6 @@ public class Arena extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 }
