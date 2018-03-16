@@ -81,7 +81,6 @@ public class Main extends javax.swing.JFrame {
         jButton3.setBounds(480, 390, 68, 68);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgMain.jpeg"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(900, 500));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 900, 500);
 
@@ -91,8 +90,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        SelectedPlayers player = new SelectedPlayers();
-        player.setVisible(true);
+        Arena arena = new Arena();
+        arena.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 

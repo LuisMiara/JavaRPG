@@ -65,8 +65,9 @@ public class Home extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {            
             int n = jProgressBar1.getValue();
+            jProgressBar1.setMaximum(100);
             if(n < 100){
-                n = n + 3;
+                n = n + 2;
                 jProgressBar1.setValue(n);
                 jProgressBar1.setString(n + "%");
             }else{
@@ -147,7 +148,7 @@ public class Home extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
-        timer = new Timer(500, new progresso());
+        timer = new Timer(200, new progresso());
         timer.start();
         providers.Songs.startInitialSong();
     }//GEN-LAST:event_formWindowOpened

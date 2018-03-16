@@ -27,7 +27,12 @@ public class Arena extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jProgressBar1 = new javax.swing.JProgressBar();
+        LifeBarPlayer1 = new javax.swing.JProgressBar();
+        jPanel1 = new javax.swing.JPanel();
+        jLabelPayerOne = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabelPLayer2 = new javax.swing.JLabel();
+        LifeBarPlayer2 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,13 +41,54 @@ public class Arena extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(900, 500));
         getContentPane().setLayout(null);
-        getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(130, 370, 210, 20);
+        getContentPane().add(LifeBarPlayer1);
+        LifeBarPlayer1.setBounds(50, 380, 220, 20);
+
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(139, 132, 132), new java.awt.Color(139, 132, 132), new java.awt.Color(156, 152, 152), new java.awt.Color(141, 134, 134)));
+
+        jLabelPayerOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkglorysson.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelPayerOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelPayerOne, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(60, 50, 201, 304);
+
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(136, 131, 131), new java.awt.Color(138, 133, 133), new java.awt.Color(137, 130, 130), new java.awt.Color(133, 130, 130)));
+
+        jLabelPLayer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/montaro.png"))); // NOI18N
+        jLabelPLayer2.setPreferredSize(new java.awt.Dimension(196, 299));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelPLayer2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabelPLayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(640, 60, 201, 304);
+        getContentPane().add(LifeBarPlayer2);
+        LifeBarPlayer2.setBounds(640, 380, 210, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpg"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(900, 500));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-6, 0, 1000, 510);
+        jLabel1.setBounds(-6, 0, 950, 510);
 
         pack();
         setLocationRelativeTo(null);
@@ -84,7 +130,12 @@ public class Arena extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar LifeBarPlayer1;
+    private javax.swing.JProgressBar LifeBarPlayer2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel jLabelPLayer2;
+    private javax.swing.JLabel jLabelPayerOne;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
