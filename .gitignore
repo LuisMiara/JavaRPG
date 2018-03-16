@@ -1,36 +1,16 @@
 
-# Created by https://www.gitignore.io/api/java,netbeans
 
-### Java ###
-# Compiled class file
-*.class
+# Created by https://www.gitignore.io/api/netbeans,code-java
 
-# Log file
-*.log
+### Code-Java ###
+# Language Support for Java(TM) by Red Hat extension for Visual Studio Code - https://marketplace.visualstudio.com/items?itemName=redhat.java
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+.project
+.classpath
+factoryConfiguration.json
 
 ### NetBeans ###
-nbproject/*
 nbproject/private/
-nbproject/private/private.properties
-nbproject/build-impl.xml
-nbproject/genfiles.properties
 build/
 nbbuild/
 dist/
@@ -39,4 +19,4 @@ nbdist/
 nbactions.xml
 
 
-# End of https://www.gitignore.io/api/java,netbeans
+# End of https://www.gitignore.io/api/netbeans,code-java
