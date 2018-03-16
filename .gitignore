@@ -1,8 +1,15 @@
 
-# Created by https://www.gitignore.io/api/netbeans
+# Created by https://www.gitignore.io/api/netbeans,code-java
+
+### Code-Java ###
+# Language Support for Java(TM) by Red Hat extension for Visual Studio Code - https://marketplace.visualstudio.com/items?itemName=redhat.java
+
+.project
+.classpath
+factoryConfiguration.json
 
 ### NetBeans ###
-nbproject/*
+nbproject/private/
 build/
 nbbuild/
 dist/
@@ -11,4 +18,4 @@ nbdist/
 nbactions.xml
 
 
-# End of https://www.gitignore.io/api/netbeans
+# End of https://www.gitignore.io/api/netbeans,code-java
