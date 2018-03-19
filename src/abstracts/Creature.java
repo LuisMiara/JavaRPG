@@ -38,14 +38,14 @@ public abstract class Creature implements Generic {
     }
     
     public void atack(){
-    
+
     }
     
     public void defense(){
     
     }
     
-    public void vivo(){
+    public void alive(){
     
     }
     
