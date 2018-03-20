@@ -6,6 +6,7 @@
 package abstracts;
 
 import interfaces.Generic;
+import java.util.Random;
 
 /**
  *
@@ -24,10 +25,10 @@ public abstract class Creature implements Generic {
     private int intelligence;
     private int charisma;
 
-    public Creature(String name, String classe, int nivel, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
+    public Creature(String name, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
         this.name = name;
         this.classe = classe;
-        this.level = nivel;
+        this.level = level;
         this.life = life;
         this.magic = magic;
         this.force = force;
@@ -127,27 +128,42 @@ public abstract class Creature implements Generic {
         return this.charisma;
     }
     
-    public void atack(){
-
+    //Methods
+    public float randomizer(){
+        Random r = new Random();
+        float max = (float) 1.10;
+        float min = (float) 1.66;
+        float randomNumber = r.nextInt((int) ((max - min)+1)) + min;
+        
+        System.out.println("random: "+randomNumber); //method needs some tests
+        
+        return randomNumber;
+    }
+    
+    public float atack(){
+        if((float)( (this.level + this.force + this.agility + (this.magic*0.1)) * this.randomizer() ) > 100){
+            return 100;
+        }else
+            return (float)( (this.level + this.force + this.agility + (this.magic*0.1)) * this.randomizer() );
     }
     
     public void defense(){
     
     }
     
-    public void alive(){
-    
+    public boolean alive(){
+        return (this.getLife() > 0);
     }
     
     public void  lostLife(){
+        this.setLife(this.getLife() - 8);
+    }
+    
+    public void revitalize(){
     
     }
     
-    public void revitalizar(){
-    
-    }
-    
-    public void descansar(){
+    public void rest(){
     
     }
     
@@ -156,6 +172,7 @@ public abstract class Creature implements Generic {
     
         return "";
     }
+    
     
 
     

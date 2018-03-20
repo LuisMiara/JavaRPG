@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Players.Hero;
 import java.awt.Color;
 import providers.Songs;
 
@@ -24,6 +25,9 @@ public class Main extends javax.swing.JFrame {
         jButton2.setBackground(Color.BLACK);
         jButton3.setBackground(Color.BLACK);
         jButton1.setForeground(Color.RED);
+        
+        
+        
         
     }
 
