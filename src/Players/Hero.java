@@ -15,7 +15,7 @@ public class Hero extends Creature{
         
     private int blessing;
 
-    public Hero(String name, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma, int blessing) {
+    public Hero(String name,String image, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma, int blessing) {
         super(name, classe, level, life, magic, force, agility, dexterity, intelligence, charisma);
         this.blessing = blessing;
         
