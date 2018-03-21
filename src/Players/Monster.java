@@ -22,7 +22,7 @@ public class Monster extends Creature{
 
         float restCoefficient = (float)(this.life + this.level ) * this.randomizer();
         
-        if(this.restCoefficient > 20) this.revitalize();
+        if(restCoefficient > 20) this.revitalize();
     }
     
 }
