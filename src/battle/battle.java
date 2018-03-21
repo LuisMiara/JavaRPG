@@ -25,7 +25,7 @@ public class battle {
         Home home = new Home();
         home.setVisible(true);
 
-        Hero DARK_GLORYSSON = new Hero("darkglorysson","Humano","darkglorysson", 5 , 8, 10, 100, 15, 100, 2, 10, 10);
+        Hero DARK_GLORYSSON = new Hero("darkglorysson",]"Humano","darkglorysson", 5 , 8, 10, 100, 15, 100, 2, 10, 10);
         Hero MELLAYNE= new Hero("mellayne","Humano","mellayne", 10, 5, 8, 100, 2, 80, 20, 25, 10);
         Hero GRYIN= new Hero("gryin","Anão","gryin", 5 , 10, 10, 100, 5, 50, 1, 30, 10);
 
