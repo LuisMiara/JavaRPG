@@ -33,6 +33,10 @@ public class Arena extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabelPLayer2 = new javax.swing.JLabel();
         LifeBarPlayer2 = new javax.swing.JProgressBar();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,7 +46,7 @@ public class Arena extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1210, 500));
         getContentPane().setLayout(null);
         getContentPane().add(LifeBarPlayer1);
-        LifeBarPlayer1.setBounds(50, 340, 220, 20);
+        LifeBarPlayer1.setBounds(50, 360, 220, 20);
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(139, 132, 132), new java.awt.Color(139, 132, 132), new java.awt.Color(156, 152, 152), new java.awt.Color(141, 134, 134)));
 
@@ -83,7 +87,28 @@ public class Arena extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(540, 20, 201, 304);
         getContentPane().add(LifeBarPlayer2);
-        LifeBarPlayer2.setBounds(540, 340, 210, 20);
+        LifeBarPlayer2.setBounds(540, 360, 210, 20);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(870, 10, 300, 470);
+
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 4, 4));
+        jLabel2.setText("Life");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(50, 340, 220, 21);
+
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(253, 10, 10));
+        jLabel3.setText("Life");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(540, 340, 210, 21);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpg"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(1210, 500));
@@ -133,9 +158,13 @@ public class Arena extends javax.swing.JFrame {
     private javax.swing.JProgressBar LifeBarPlayer1;
     private javax.swing.JProgressBar LifeBarPlayer2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelPLayer2;
     private javax.swing.JLabel jLabelPayerOne;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
