@@ -18,6 +18,7 @@ public class Monster extends Creature{
         
     }
     
+    @Override
     public void rest(){
 
         float restCoefficient = (float)(this.life + this.level ) * this.randomizer();

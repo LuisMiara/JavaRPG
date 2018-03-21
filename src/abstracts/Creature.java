@@ -150,7 +150,8 @@ public abstract class Creature implements Generic {
     
     public float defense(){
         
-        float coefficient = (float) this.agility + (this.dexterity * 0.7) + this.intelligence) * this.randomizer() + 10;
+        float coefficient = (float) (this.agility + (this.dexterity * 0.7) + this.intelligence) * this.randomizer() + 10;
+        
         if(coefficient > 100)
             return 100;
         else
@@ -178,21 +179,12 @@ public abstract class Creature implements Generic {
         }
     }
     
-    public void rest();
+    public abstract void rest();
     
     @Override
     public String toString() {
         
-        return super.toString() + "Creature{" + "name=" + name + ", classe=" + classe + ", nivel=" + nivel + ", life=" + life + ", magic=" + magic + ", force=" + force + ", agility=" + agility + ", dexterity=" + dexterity + ", intelligence=" + intelligence + ", charisma=" + charisma + '}';
-    }
-    
-    
-
-    
-
-    
-    
-    
-    
-    
+        return super.toString() + "Creature{" + "name=" + name + ", classe=" + classe + ", level=" + level + ", life=" + life + ", magic=" + magic + ", force=" + force + ", agility=" + agility + ", dexterity=" + dexterity + ", intelligence=" + intelligence + ", charisma=" + charisma + '}';
+    }   
+   
 }

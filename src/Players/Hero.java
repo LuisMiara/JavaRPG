@@ -21,6 +21,7 @@ public class Hero extends Creature{
         
     }
 
+    @Override
     public void rest(){
         float restCoefficient = (float)(this.life + this.level + this.blessing) * this.randomizer();
 
