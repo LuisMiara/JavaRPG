@@ -28,7 +28,7 @@ public abstract class Creature implements Generic {
 
     public Creature(String name, String image, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
         this.name = name;
-        this.image = image;
+        this.image = "" +image + ".png";
         this.classe = classe;
         this.level = level;
         this.life = life;
