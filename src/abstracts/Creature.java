@@ -14,16 +14,16 @@ import java.util.Random;
  */
 public abstract class Creature implements Generic {
         
-    private String name;
-    private String classe;
-    private int level;
-    private int life;
-    private int magic;
-    private int force;
-    private int agility;
-    private int dexterity;
-    private int intelligence;
-    private int charisma;
+    protected String name;
+    protected String classe;
+    protected int level;
+    protected int life;
+    protected int magic;
+    protected int force;
+    protected int agility;
+    protected int dexterity;
+    protected int intelligence;
+    protected int charisma;
 
     public Creature(String name, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
         this.name = name;
@@ -141,14 +141,20 @@ public abstract class Creature implements Generic {
     }
     
     public float atack(){
-        if((float)( (this.level + this.force + this.agility + (this.magic*0.1)) * this.randomizer() ) > 100){
+        float coefficient = (float) (this.level + this.force + this.agility + (this.magic*0.1)) * this.randomizer();
+        if(this.coefficient > 100)
             return 100;
-        }else
-            return (float)( (this.level + this.force + this.agility + (this.magic*0.1)) * this.randomizer() );
+        else
+            return this.coefficient;
     }
     
-    public void defense(){
-    
+    public float defense(){
+        
+        float coefficient = (float) this.agility + (this.dexterity * 0.7) + this.intelligence) * this.randomizer() + 10;
+        if(this.coefficient > 100)
+            return 100;
+        else
+            return this.coefficient;
     }
     
     public boolean alive(){
@@ -160,12 +166,19 @@ public abstract class Creature implements Generic {
     }
     
     public void revitalize(){
-    
+        if((this.life + 50) > 100){
+            this.life = 100;
+        }else{
+            this.life += 50;
+        }
+        if((this.magic + 30) > 100){
+            this.magic = 100;
+        }else{
+            this.magic += 30;
+        }
     }
     
-    public void rest(){
-    
-    }
+    public void rest();
     
     @Override
     public String toString(){
