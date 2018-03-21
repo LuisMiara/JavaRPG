@@ -14,6 +14,7 @@ import java.util.Random;
  */
 public abstract class Creature implements Generic {
         
+    protected String image;
     protected String name;
     protected String classe;
     protected int level;
@@ -25,8 +26,9 @@ public abstract class Creature implements Generic {
     protected int intelligence;
     protected int charisma;
 
-    public Creature(String name, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
+    public Creature(String name, String image, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
         this.name = name;
+        this.image = image;
         this.classe = classe;
         this.level = level;
         this.life = life;
