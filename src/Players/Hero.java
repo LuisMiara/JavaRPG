@@ -23,7 +23,7 @@ public class Hero extends Creature{
     public void rest(){
         float restCoefficient = (float)(this.life + this.level + this.blessing) * this.randomizer();
 
-        if(this.restCoefficient > 20) this.revitalize();
+        if(restCoefficient > 20) this.revitalize();
     }
     
     

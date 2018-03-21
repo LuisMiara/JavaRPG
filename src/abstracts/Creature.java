@@ -142,19 +142,19 @@ public abstract class Creature implements Generic {
     
     public float atack(){
         float coefficient = (float) (this.level + this.force + this.agility + (this.magic*0.1)) * this.randomizer();
-        if(this.coefficient > 100)
+        if(coefficient > 100)
             return 100;
         else
-            return this.coefficient;
+            return coefficient;
     }
     
     public float defense(){
         
         float coefficient = (float) this.agility + (this.dexterity * 0.7) + this.intelligence) * this.randomizer() + 10;
-        if(this.coefficient > 100)
+        if(coefficient > 100)
             return 100;
         else
-            return this.coefficient;
+            return coefficient;
     }
     
     public boolean alive(){
