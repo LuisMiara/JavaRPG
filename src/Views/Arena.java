@@ -37,12 +37,12 @@ public class Arena extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaRPG - Arena");
-        setPreferredSize(new java.awt.Dimension(900, 500));
+        setPreferredSize(new java.awt.Dimension(1210, 500));
         setResizable(false);
-        setSize(new java.awt.Dimension(900, 500));
+        setSize(new java.awt.Dimension(1210, 500));
         getContentPane().setLayout(null);
         getContentPane().add(LifeBarPlayer1);
-        LifeBarPlayer1.setBounds(50, 380, 220, 20);
+        LifeBarPlayer1.setBounds(50, 340, 220, 20);
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(139, 132, 132), new java.awt.Color(139, 132, 132), new java.awt.Color(156, 152, 152), new java.awt.Color(141, 134, 134)));
 
@@ -60,7 +60,7 @@ public class Arena extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(60, 50, 201, 304);
+        jPanel1.setBounds(60, 20, 201, 304);
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(136, 131, 131), new java.awt.Color(138, 133, 133), new java.awt.Color(137, 130, 130), new java.awt.Color(133, 130, 130)));
 
@@ -71,7 +71,7 @@ public class Arena extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelPLayer2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelPLayer2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,14 +81,14 @@ public class Arena extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(640, 60, 201, 304);
+        jPanel2.setBounds(540, 20, 201, 304);
         getContentPane().add(LifeBarPlayer2);
-        LifeBarPlayer2.setBounds(640, 380, 210, 20);
+        LifeBarPlayer2.setBounds(540, 340, 210, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpg"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(900, 500));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1210, 500));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-6, 0, 950, 510);
+        jLabel1.setBounds(-6, 0, 1210, 510);
 
         pack();
         setLocationRelativeTo(null);

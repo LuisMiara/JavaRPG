@@ -5,10 +5,16 @@
  */
 package Players;
 
+import abstracts.Creature;
+
 /**
  *
  * @author gustavomiara
  */
-public class Monster {
+public class Monster extends Creature{
+    
+    public Monster(String name, String classe, int nivel, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
+        super(name, classe, nivel, life, magic, force, agility, dexterity, intelligence, charisma);
+    }
     
 }

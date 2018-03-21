@@ -60,12 +60,14 @@ public abstract class Creature implements Generic {
     public void descansar(){
     
     }
-    
+
     @Override
-    public String toString(){
-    
-        return "";
+    public String toString() {
+        
+        return super.toString() + "Creature{" + "name=" + name + ", classe=" + classe + ", nivel=" + nivel + ", life=" + life + ", magic=" + magic + ", force=" + force + ", agility=" + agility + ", dexterity=" + dexterity + ", intelligence=" + intelligence + ", charisma=" + charisma + '}';
     }
+    
+
     
 
     
