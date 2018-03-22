@@ -37,25 +37,31 @@ public class battle {
         Monster MATILDA = new Monster("matilda","Elfa","matilda", 8, 10, 10, 100, 18, 80, 5, 10);
         
 
-        Creature hero[] = {DARK_GLORYSSON,MELLAYNE, GRYIN };
-        Monster monsters[] = {MONTARO, LORD_BLACK, MATILDA};
-        System.out.println(hero[0].getLife());
-        hero[0].rest();
-        System.out.println(hero[0].getLife());
-        // for(int i = 0; i<4 ; i++){
-        //     do{
-        //         if(hero[i].atack() > monsters[i].defense()){
-        //             monsters[i].lostLife();
-        //         }
-        //         if(monsters[i].atack() > hero[i].defense()){
-        //             hero[i].lostLife();
-        //         }
-        //     }while(hero[i].getLife() != 0 || monsters[i].getLife() != 0);
-        //     hero[i].rest();
-        // }
+        Creature fighters[] = {DARK_GLORYSSON, MONTARO, MELLAYNE, LORD_BLACK, GRYIN, MATILDA};
 
+        for(int i = 0; fighters.length == 1; i += 2){
 
-//        Hero heroi = (Hero)vencedor;
+            if(i => fighters.length) i = 0;
+
+            do{
+                if(fighters[i+1].atack() > fighters[i].defense()){
+                    fighters[i].lostLife();
+                }
+                if(fighters[i].atack() > fighters[i+1].defense()){
+                    fighters[i+1].lostLife();
+                }
+            }while(fighters[i+1].getLife() < 0 || fighters[i+1].getLife() < 0);
+            
+            if(fighters[i].getLife() > 0){
+                fighters[i].rest();
+                fighters[i+1].pop();
+            }
+            else{
+                fighters[i+1].rest();
+                fighters[i].pop();
+            }            
+        }
+        System.out.println(fighters[0].name);
     }
     
 }
