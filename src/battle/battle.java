@@ -5,7 +5,10 @@
  */
 package battle;
 
+import Players.Hero;
+import Players.Monster;
 import Views.Home;
+import abstracts.Creature;
 
 /**
  *
@@ -25,20 +28,20 @@ public class battle {
         Home home = new Home();
         home.setVisible(true);
 
-        Hero DARK_GLORYSSON = new Hero("darkglorysson",]"Humano","darkglorysson", 5 , 8, 10, 100, 15, 100, 2, 10, 10);
+        Hero DARK_GLORYSSON = new Hero("darkglorysson","Humano","darkglorysson", 5 , 8, 10, 100, 15, 100, 2, 10, 10);
         Hero MELLAYNE= new Hero("mellayne","Humano","mellayne", 10, 5, 8, 100, 2, 80, 20, 25, 10);
         Hero GRYIN= new Hero("gryin","Anão","gryin", 5 , 10, 10, 100, 5, 50, 1, 30, 10);
 
-        Monster MONTARO = new Monster("montaro","Elfo das Trevas","montaro", 5, 7, 10, 100, 15, 100, 10, 10
-        Monster LORD_BLACK = new Monster(,"lordblack","Humano","lordblack", 12, 10, 10, 100, 10, 20, 1, 32
-        Monster MATILDA = new Monster("matilda","Elfa","matilda", 8, 10, 10, 100, 18, 80, 5, 10
+        Monster MONTARO = new Monster("montaro","Elfo das Trevas","montaro", 5, 7, 10, 100, 15, 100, 10, 10);
+        Monster LORD_BLACK = new Monster("lordblack","Humano","lordblack", 12, 10, 10, 100, 10, 20, 1, 32);
+        Monster MATILDA = new Monster("matilda","Elfa","matilda", 8, 10, 10, 100, 18, 80, 5, 10);
         
 
-        Creature hero[] = new Hero()[DARK_GLORYSSON,MELLAYNE, GRYIN ];
-        Monster monsters[] =new Monster() [MONTARO, LORD_BLACK, MATILDA];
-        hero[0].lostLife();
+        Creature hero[] = {DARK_GLORYSSON,MELLAYNE, GRYIN };
+        Monster monsters[] = {MONTARO, LORD_BLACK, MATILDA};
+        System.out.println(hero[0].getLife());
         hero[0].rest();
-        System.out.println(hero[0].getLife())
+        System.out.println(hero[0].getLife());
         // for(int i = 0; i<4 ; i++){
         //     do{
         //         if(hero[i].atack() > monsters[i].defense()){
@@ -52,7 +55,7 @@ public class battle {
         // }
 
 
-        Hero heroi = (Hero)vencedor;
+//        Hero heroi = (Hero)vencedor;
     }
     
 }

@@ -133,11 +133,11 @@ public abstract class Creature implements Generic {
     //Methods
     public float randomizer(){
         Random r = new Random();
-        float max = (float) 1.10;
-        float min = (float) 1.66;
+        float max = (float) 1.66;
+        float min = (float) 1.10;
         float randomNumber = r.nextInt((int) ((max - min)+1)) + min;
         
-        System.out.println("random: "+randomNumber); //method needs some tests
+        System.out.println("random: "+ randomNumber); //method needs some tests
         
         return randomNumber;
     }
