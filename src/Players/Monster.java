@@ -13,14 +13,9 @@ import abstracts.Creature;
  */
 public class Monster extends Creature{
 
-<<<<<<< HEAD
     public Monster(String name, String classe,String image, int agility,int level, int dexterity, int life, int intelligence, int magic, int charisma, int force) {
         super(name, classe, image, agility, level, dexterity, life, intelligence, magic, charisma, force);
 
-=======
-    public Monster(String name, String classe, String image, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
-        super(name, classe,image, level, life, magic, force, agility, dexterity, intelligence, charisma);
->>>>>>> 239afa5378a2be28563dd7af7ca7be88c40dc46b
         
     }
     
