@@ -15,8 +15,6 @@ public class Monster extends Creature{
 
     public Monster(String name, String classe,String image, int agility,int level, int dexterity, int life, int intelligence, int magic, int charisma, int force) {
         super(name, classe, image, agility, level, dexterity, life, intelligence, magic, charisma, force);
-
-        
     }
     
     @Override

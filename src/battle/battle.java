@@ -50,20 +50,23 @@ public class battle {
 //        Creature fighters[] = {DARK_GLORYSSON, MONTARO, MELLAYNE, LORD_BLACK, GRYIN, MATILDA};
 
         for (int i = 0; fighters.size() != 1; i++) {
+            if (i+1 >= fighters.size()) {
+                i = 0;
+            }
             System.out.println("*****************************************************************\n");
             System.out.println("Jogador 1 =>" + fighters.get(i).getName() + " VS Jogador 2 =>" + fighters.get(i + 1).getName());
             System.out.println("*****************************************************************\n");
-
-            if (i >= fighters.size()) {
-                i = 0;
-            }
+                
+            
 
             do {
                 if (fighters.get(i + 1).atack() > fighters.get(i).defense()) {
                     fighters.get(i).lostLife();
+                    //System.out.println("LostLife =>" + fighters.get(i).getLife());
                 }
                 if (fighters.get(i).atack() > fighters.get(i + 1).defense()) {
                     fighters.get(i + 1).lostLife();
+                    //System.out.println("LostLife =>" + fighters.get(i + 1).getLife());
                 }
 
 
@@ -73,16 +76,18 @@ public class battle {
                 fighters.get(i).rest();
 
                 System.out.println(fighters.get(i).getName() + "ganhou");
-                fighters.remove(i + 1);
                 System.out.println(fighters.get(i + 1).getName() + "perdeu");
+                fighters.remove(i + 1);
+                
             } else {
                 fighters.get(i + 1).rest();
                 System.out.println(fighters.get(i + 1).getName() + "ganhou");
-                fighters.remove(i);
                 System.out.println(fighters.get(i).getName() + "perdeu");
+                fighters.remove(i);
+                
             }
         }
-        System.out.println(fighters.get(0).getName() + "perdeu");
+        System.out.println(fighters.get(0).getName() + "venceu");
     }
 
 }

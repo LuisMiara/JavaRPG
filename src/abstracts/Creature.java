@@ -143,9 +143,9 @@ public abstract class Creature implements Generic {
         Random r = new Random();
         float max = (float) 1.66;
         float min = (float) 1.10;
-        float randomNumber = r.nextInt((int) ((max - min)+1)) + min;
+        float randomNumber = min + r.nextFloat() * (max -min);
         
-        //System.out.println("random: "+ randomNumber); //method needs some tests
+        System.out.println("random: "+ randomNumber); //method needs some tests
         
         return randomNumber;
     }
@@ -161,7 +161,7 @@ public abstract class Creature implements Generic {
     
     public float defense(){
         
-        float coefficient = (float) (this.agility + (this.dexterity * 0.7) + this.intelligence) * this.randomizer() + 10;
+        float coefficient = (float) (this.agility + (this.dexterity * 0.7) + this.intelligence) * this.randomizer() + 5;
         System.out.println("coefficientdefe: "+ coefficient);
 
         if(coefficient > 100)
