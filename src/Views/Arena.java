@@ -5,6 +5,11 @@
  */
 package Views;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author gustavomiara
@@ -15,8 +20,21 @@ public class Arena extends javax.swing.JFrame {
      * Creates new form Arena
      */
     public Arena() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
+        loadLifes();
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +63,8 @@ public class Arena extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1210, 500));
         getContentPane().setLayout(null);
+
+        LifeBarPlayer1.setBackground(new java.awt.Color(249, 8, 24));
         getContentPane().add(LifeBarPlayer1);
         LifeBarPlayer1.setBounds(50, 360, 220, 20);
 
@@ -119,6 +139,12 @@ public class Arena extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadLifes(){
+        LifeBarPlayer1.setValue(100);
+        LifeBarPlayer1.setString(100 + "%");
+        LifeBarPlayer2.setValue(100);
+        LifeBarPlayer2.setString(100 + "%");
+    }
     /**
      * @param args the command line arguments
      */

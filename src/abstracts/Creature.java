@@ -16,6 +16,14 @@ public abstract class Creature implements Generic {
         
     protected String image;
     protected String name;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
     protected String classe;
     protected int level;
     protected int life;
