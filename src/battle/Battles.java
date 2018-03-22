@@ -9,12 +9,15 @@ import Players.Hero;
 import Players.Monster;
 import Views.Home;
 import abstracts.Creature;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 
@@ -23,7 +26,7 @@ import javax.swing.JTextArea;
  * @author gustavomiara
  */
 public class Battles {
-    
+
     public JLabel jLabelPayer1;
     public JLabel jLabelPLayer2;
     public JProgressBar LifeBarPlayer1;
@@ -37,14 +40,10 @@ public class Battles {
         this.LifeBarPlayer2 = LifeBarPlayer2;
         this.jTextArea = jTextArea;
     }
-    
-    
-    
-    
+
     ArrayList<Creature> fighters = new ArrayList();
-    
-    
-    public void loadPlayers(){
+
+    public void loadPlayers() {
         Hero DARK_GLORYSSON = new Hero("darkglorysson", "Humano", "darkglorysson", 5, 8, 10, 100, 15, 100, 2, 10, 10);
         Hero MELLAYNE = new Hero("mellayne", "Humano", "mellayne", 10, 5, 8, 100, 2, 80, 20, 25, 10);
         Hero GRYIN = new Hero("gryin", "Anão", "gryin", 5, 10, 10, 100, 5, 50, 1, 30, 10);
@@ -53,7 +52,6 @@ public class Battles {
         Monster LORD_BLACK = new Monster("lordblack", "Humano", "lordblack", 12, 10, 10, 100, 10, 20, 1, 32);
         Monster MATILDA = new Monster("matilda", "Elfa", "matilda", 8, 10, 10, 100, 18, 80, 5, 10);
 //        name, image, classe, level, life, magic, force, agility, dexterity, intelligence, charisma
-
 
         fighters.add(DARK_GLORYSSON);
         fighters.add(MONTARO);
@@ -64,8 +62,8 @@ public class Battles {
 
         System.out.println(fighters.size());
     }
-    
-    public void battles(){
+
+    public void battles() {
         for (int i = 0; fighters.size() != 1; i++) {
             if (i + 1 >= fighters.size()) {
                 i = 0;
@@ -77,12 +75,11 @@ public class Battles {
             this.jTextArea.append(fighters.get(i).toString() + "\n");
             this.jTextArea.append("\t" + fighters.get(i + 1).getName() + "\n");
             this.jTextArea.append(fighters.get(i + 1).toString() + "\n");
-            ImageIcon imgThisImg = new ImageIcon(fighters.get(i).getName());
+            ImageIcon imgThisImg = new ImageIcon(fighters.get(i).getImage());
             this.jLabelPayer1.setIcon(imgThisImg);
-            imgThisImg = new ImageIcon(fighters.get(i + 1).getName());
+            imgThisImg = new ImageIcon(fighters.get(i + 1).getImage());
             this.jLabelPLayer2.setIcon(imgThisImg);
-                       
-            
+
             do {
                 try {
                     if (fighters.get(i + 1).atack() > fighters.get(i).defense()) {
@@ -93,12 +90,12 @@ public class Battles {
                         fighters.get(i + 1).lostLife();
                         //System.out.println("LostLife =>" + fighters.get(i + 1).getLife());
                     }
-                    
+
                     TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Battles.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             } while (fighters.get(i + 1).getLife() >= 0 && fighters.get(i).getLife() >= 0);
 
             if (fighters.get(i).getLife() > 0) {
@@ -116,7 +113,5 @@ public class Battles {
 
             }
         }
-        System.out.println(fighters.get(0).getName() + "venceu");
     }
-    
 }

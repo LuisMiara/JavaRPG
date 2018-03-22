@@ -41,19 +41,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         
     }
-    
-    /*
-     * Get screen size
-     *
-    */
-    
-    public void getScreenSize(){
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        Dimension d = tk.getScreenSize();
-        System.out.println("Screen width = " + d.width);
-        System.out.println("Screen height = " + d.height);
-    }
-    
+       
     /*
      * Timer
      *

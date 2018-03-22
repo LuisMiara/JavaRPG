@@ -5,9 +5,16 @@
  */
 package Views;
 
+import Players.Hero;
+import Players.Monster;
+import abstracts.Creature;
 import battle.Battles;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -16,6 +23,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author gustavomiara
  */
 public class Arena extends javax.swing.JFrame {
+
     Battles battles;
 
     /**
@@ -35,9 +43,102 @@ public class Arena extends javax.swing.JFrame {
         }
         initComponents();
         loadLifes();
-        
+
     }
 
+    public void battle() {
+        ArrayList<Creature> fighters = new ArrayList();
+
+        Hero DARK_GLORYSSON = new Hero("darkglorysson", "Humano", "darkglorysson", 5, 8, 10, 100, 15, 100, 2, 10, 10);
+        Hero MELLAYNE = new Hero("mellayne", "Humano", "mellayne", 10, 5, 8, 100, 2, 80, 20, 25, 10);
+        Hero GRYIN = new Hero("gryin", "Anão", "gryin", 5, 10, 10, 100, 5, 50, 1, 30, 10);
+
+        Monster MONTARO = new Monster("montaro", "Elfo das Trevas", "montaro", 5, 7, 10, 100, 15, 100, 10, 10);
+        Monster LORD_BLACK = new Monster("lordblack", "Humano", "lordblack", 12, 10, 10, 100, 10, 20, 1, 32);
+        Monster MATILDA = new Monster("matilda", "Elfa", "matilda", 8, 10, 10, 100, 18, 80, 5, 10);
+//        name, image, classe, level, life, magic, force, agility, dexterity, intelligence, charisma
+
+        fighters.add(DARK_GLORYSSON);
+        fighters.add(MONTARO);
+        fighters.add(MELLAYNE);
+        fighters.add(LORD_BLACK);
+        fighters.add(GRYIN);
+        fighters.add(MATILDA);
+
+        System.out.println(fighters.size());
+
+        for (int i = 0; fighters.size() != 1; i++) {
+            if (i + 1 >= fighters.size()) {
+                i = 0;
+            }
+            this.jTextArea.append("\n**************************************************\n");
+            this.jTextArea.append("Jogador 1 =>" + fighters.get(i).getName() + "\nVS\nJogador 2 =>" + fighters.get(i + 1).getName());
+            this.jTextArea.append("\n**************************************************\n");
+            this.jTextArea.append("\t" + fighters.get(i).getName() + "\n");
+            this.jTextArea.append(fighters.get(i).toString() + "\n");
+            this.jTextArea.append("\t" + fighters.get(i + 1).getName() + "\n");
+            this.jTextArea.append(fighters.get(i + 1).toString() + "\n");
+            ImageIcon imgThisImg = new ImageIcon(fighters.get(i).getImage());
+            this.jLabelPayer1.setIcon(imgThisImg);
+            imgThisImg = new ImageIcon(fighters.get(i + 1).getImage());
+            this.jLabelPLayer2.setIcon(imgThisImg);
+
+            do {
+                try {
+                    if (fighters.get(i + 1).atack() > fighters.get(i).defense()) {
+                       
+                        this.jTextArea.append(fighters.get(i + 1).getName() + " atack "+ fighters.get(i).getName() + "\n");
+                        this.jTextArea.append(fighters.get(i).getName() + " lost 8\n");
+                        
+                        fighters.get(i).lostLife();
+                        setComponents(fighters.get(i), fighters.get(i + 1));
+                    }
+                    
+                    TimeUnit.SECONDS.sleep(1);
+                    
+                    if (fighters.get(i).atack() > fighters.get(i + 1).defense()) {
+                        
+                        this.jTextArea.append(fighters.get(i).getName() + " atack "+ fighters.get(i + 1).getName() + "\n");
+                        this.jTextArea.append(fighters.get(i + 1).getName() + " lost 8\n");
+                        fighters.get(i + 1).lostLife();
+                        setComponents(fighters.get(i), fighters.get(i + 1));
+                    }
+                    
+                    TimeUnit.SECONDS.sleep(1);
+                    
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Battles.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            } while (fighters.get(i + 1).getLife() >= 0 && fighters.get(i).getLife() >= 0);
+
+            if (fighters.get(i).getLife() > 0) {
+               this.jTextArea.append(fighters.get(i).getName() + " wins! "+ fighters.get(i + 1).getName() + " lost!\n");
+                
+                fighters.get(i).rest();
+                fighters.remove(i + 1);
+
+            } else {
+                this.jTextArea.append(fighters.get(i + 1).getName() + " wins! "+ fighters.get(i).getName() + " lost!\n");
+
+                fighters.get(i + 1).rest();
+                fighters.remove(i);
+
+            }
+        }
+    }
+
+    public void setComponents(Creature player1, Creature player2) {
+        JOptionPane.showMessageDialog(this, "Set image!");
+        ImageIcon imgThisImg = new ImageIcon(player1.getImage());
+        jLabelPayer1.setIcon(imgThisImg);
+        imgThisImg = new ImageIcon(player2.getImage());
+        jLabelPLayer2.setIcon(imgThisImg);
+        LifeBarPlayer1.setValue(player1.getLife());
+        LifeBarPlayer1.setString(player1.getLife() + "%");
+        LifeBarPlayer2.setValue(player2.getLife());
+        LifeBarPlayer2.setString(player2.getLife() + "%");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,6 +167,11 @@ public class Arena extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1210, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(1210, 500));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         LifeBarPlayer1.setBackground(new java.awt.Color(249, 8, 24));
@@ -153,21 +259,31 @@ public class Arena extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        this.battles = new Battles(jLabelPayer1, jLabelPLayer2, LifeBarPlayer1, LifeBarPlayer2, jTextArea);
-        battles.loadPlayers();
-        battles.battles();
+
+        battle();
 
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void loadLifes(){
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void loadLifes() {
+        LifeBarPlayer1.setBackground(new java.awt.Color(1, 1, 1));
+        LifeBarPlayer1.setForeground(new java.awt.Color(255, 0, 0));
+        LifeBarPlayer1.setStringPainted(true);
+
+        LifeBarPlayer2.setBackground(new java.awt.Color(1, 1, 1));
+        LifeBarPlayer2.setForeground(new java.awt.Color(255, 0, 0));
+        LifeBarPlayer2.setStringPainted(true);
         LifeBarPlayer1.setValue(100);
         LifeBarPlayer1.setString(100 + "%");
         LifeBarPlayer2.setValue(100);
         LifeBarPlayer2.setString(100 + "%");
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
