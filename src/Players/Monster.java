@@ -13,8 +13,8 @@ import abstracts.Creature;
  */
 public class Monster extends Creature{
 
-    public Monster(String name,String image, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
-        super(name, image, classe, level, life, magic, force, agility, dexterity, intelligence, charisma);
+    public Monster(String name, String classe, String image, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
+        super(name, classe,image, level, life, magic, force, agility, dexterity, intelligence, charisma);
         
     }
     
