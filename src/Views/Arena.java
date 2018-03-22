@@ -5,6 +5,7 @@
  */
 package Views;
 
+import battle.Battles;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
@@ -15,6 +16,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author gustavomiara
  */
 public class Arena extends javax.swing.JFrame {
+    Battles battles;
 
     /**
      * Creates new form Arena
@@ -33,6 +35,7 @@ public class Arena extends javax.swing.JFrame {
         }
         initComponents();
         loadLifes();
+        
     }
 
 
@@ -47,14 +50,15 @@ public class Arena extends javax.swing.JFrame {
 
         LifeBarPlayer1 = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
-        jLabelPayerOne = new javax.swing.JLabel();
+        jLabelPayer1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelPLayer2 = new javax.swing.JLabel();
         LifeBarPlayer2 = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextArea = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,17 +74,17 @@ public class Arena extends javax.swing.JFrame {
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(139, 132, 132), new java.awt.Color(139, 132, 132), new java.awt.Color(156, 152, 152), new java.awt.Color(141, 134, 134)));
 
-        jLabelPayerOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkglorysson.png"))); // NOI18N
+        jLabelPayer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkglorysson.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelPayerOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelPayer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelPayerOne, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelPayer1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1);
@@ -109,9 +113,9 @@ public class Arena extends javax.swing.JFrame {
         getContentPane().add(LifeBarPlayer2);
         LifeBarPlayer2.setBounds(540, 360, 210, 20);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextArea.setColumns(20);
+        jTextArea.setRows(5);
+        jScrollPane1.setViewportView(jTextArea);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(870, 10, 300, 470);
@@ -130,6 +134,15 @@ public class Arena extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(540, 340, 210, 21);
 
+        jButton1.setText("Iniciar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(70, 450, 52, 29);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpg"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(1210, 500));
         getContentPane().add(jLabel1);
@@ -139,12 +152,22 @@ public class Arena extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        this.battles = new Battles(jLabelPayer1, jLabelPLayer2, LifeBarPlayer1, LifeBarPlayer2, jTextArea);
+        battles.loadPlayers();
+        battles.battles();
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
     private void loadLifes(){
         LifeBarPlayer1.setValue(100);
         LifeBarPlayer1.setString(100 + "%");
         LifeBarPlayer2.setValue(100);
         LifeBarPlayer2.setString(100 + "%");
     }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -183,14 +206,15 @@ public class Arena extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar LifeBarPlayer1;
     private javax.swing.JProgressBar LifeBarPlayer2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelPLayer2;
-    private javax.swing.JLabel jLabelPayerOne;
+    private javax.swing.JLabel jLabelPayer1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea;
     // End of variables declaration//GEN-END:variables
 }

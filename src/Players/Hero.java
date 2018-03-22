@@ -26,6 +26,17 @@ public class Hero extends Creature{
 
         if(restCoefficient > 20) this.revitalize();
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Hero{" + "blessing=" + blessing + '}';
+    }
+
+
+    
+    
+    
+    
     
     
     

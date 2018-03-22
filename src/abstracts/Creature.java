@@ -13,7 +13,7 @@ import java.util.Random;
  * @author gustavomiara
  */
 public abstract class Creature implements Generic {
-        
+
     protected String image;
     protected String name;
 
@@ -34,10 +34,10 @@ public abstract class Creature implements Generic {
     protected int intelligence;
     protected int charisma;
 
-    public Creature(String name, String classe,String image, int agility,int level, int dexterity, int life, int intelligence, int magic, int charisma, int force) {
+    public Creature(String name, String classe, String image, int agility, int level, int dexterity, int life, int intelligence, int magic, int charisma, int force) {
         this.name = name;
         this.classe = classe;
-        this.image = "" +image + ".png";
+        this.image = "src/images/" + image + ".png";
         this.level = level;
         this.life = life;
         this.magic = magic;
@@ -47,156 +47,155 @@ public abstract class Creature implements Generic {
         this.intelligence = intelligence;
         this.charisma = charisma;
     }
-    
+
     //Name set & get
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
-    
-    public String getName(){
+
+    public String getName() {
         return this.name;
     }
-    
+
     //Classe set & get
-    public void setClasse(String classe){
+    public void setClasse(String classe) {
         this.classe = classe;
     }
-    
-    public String getClasse(){
+
+    public String getClasse() {
         return this.classe;
     }
-    
+
     //Level set & get
-    public void setLevel(int level){
+    public void setLevel(int level) {
         this.level = level;
     }
-    
-    public int getLevel(){
+
+    public int getLevel() {
         return this.level;
     }
-    
+
     //Life set & get
-    public void setLife(int life){
+    public void setLife(int life) {
         this.life = life;
     }
-    
-    public int getLife(){
+
+    public int getLife() {
         return this.life;
     }
-    
+
     //Magic set & get
-    public void setMagic(int magic){
+    public void setMagic(int magic) {
         this.magic = magic;
     }
-    
-    public int getMagic(){
+
+    public int getMagic() {
         return this.magic;
     }
-    
+
     //Force set & get
-    public void setForce(int force){
+    public void setForce(int force) {
         this.force = force;
     }
-    
-    public int getForce(){
+
+    public int getForce() {
         return this.force;
     }
-    
+
     //Agility set & get
-    public void setAgility(int agility){
+    public void setAgility(int agility) {
         this.agility = agility;
     }
-    
-    public int getAgility(){
+
+    public int getAgility() {
         return this.agility;
     }
-    
+
     //Dexterity set & get
-    public void setDexterity(int dexterity){
+    public void setDexterity(int dexterity) {
         this.dexterity = dexterity;
     }
-    
-    public int getDexterity(){
+
+    public int getDexterity() {
         return this.dexterity;
     }
-    
+
     //Intelligence set & get
-    public void setIntelligence(int intelligence){
+    public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
-    
-    public int getIntelligence(){
+
+    public int getIntelligence() {
         return this.intelligence;
     }
-    
+
     //Charisma set & get
-    public void setCharisma(int charisma){
+    public void setCharisma(int charisma) {
         this.charisma = charisma;
     }
-    
-    public int getCharisma(){
+
+    public int getCharisma() {
         return this.charisma;
     }
-    
+
     //Methods
-    public float randomizer(){
+    public float randomizer() {
         Random r = new Random();
         float max = (float) 1.66;
         float min = (float) 1.10;
-        float randomNumber = min + r.nextFloat() * (max -min);
-        
-        System.out.println("random: "+ randomNumber); //method needs some tests
-        
+        float randomNumber = min + r.nextFloat() * (max - min);
+
+//        System.out.println("random: "+ randomNumber); //method needs some tests
         return randomNumber;
     }
-    
-    public float atack(){
-        float coefficient = (float) (this.level + this.force + this.agility + (this.magic*0.1)) * this.randomizer();
-        System.out.println("coefficientAtack: "+ coefficient);
-        if(coefficient > 100)
-            return 100;
-        else
-            return coefficient;
-    }
-    
-    public float defense(){
-        
-        float coefficient = (float) (this.agility + (this.dexterity * 0.7) + this.intelligence) * this.randomizer() + 5;
-        System.out.println("coefficientdefe: "+ coefficient);
 
-        if(coefficient > 100)
+    public float atack() {
+        float coefficient = (float) (this.level + this.force + this.agility + (this.magic * 0.1)) * this.randomizer();
+//        System.out.println("coefficientAtack: "+ coefficient);
+        if (coefficient > 100) {
             return 100;
-        else
+        } else {
             return coefficient;
+        }
     }
-    
-    public boolean alive(){
+
+    public float defense() {
+        float coefficient = (float) (this.agility + (this.dexterity * 0.7) + this.intelligence) * this.randomizer() + 5;
+//        System.out.println("coefficientdefe: "+ coefficient);
+        if (coefficient > 100) {
+            return 100;
+        } else {
+            return coefficient;
+        }
+    }
+
+    public boolean alive() {
         return (this.getLife() > 0);
     }
-    
-    public void  lostLife(){
+
+    public void lostLife() {
         this.setLife(this.getLife() - 8);
     }
-    
-    public void revitalize(){
-        if((this.life + 50) > 100){
+
+    public void revitalize() {
+        if ((this.life + 50) > 100) {
             this.life = 100;
-        }else{
+        } else {
             this.life += 50;
         }
-        if((this.magic + 30) > 100){
+        if ((this.magic + 30) > 100) {
             this.magic = 100;
-        }else{
+        } else {
             this.magic += 30;
         }
     }
-    
+
     public abstract void rest();
-    
+
     @Override
     public String toString() {
-        
+
         return super.toString() + "Creature{" + "name=" + name + ", classe=" + classe + ", level=" + level + ", life=" + life + ", magic=" + magic + ", force=" + force + ", agility=" + agility + ", dexterity=" + dexterity + ", intelligence=" + intelligence + ", charisma=" + charisma + '}';
-    }   
-   
+    }
+
 }

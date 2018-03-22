@@ -25,4 +25,5 @@ public class Monster extends Creature{
         if(restCoefficient > 20) this.revitalize();
     }
     
+    
 }
