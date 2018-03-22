@@ -34,10 +34,10 @@ public abstract class Creature implements Generic {
     protected int intelligence;
     protected int charisma;
 
-    public Creature(String name, String image, String classe, int level, int life, int magic, int force, int agility, int dexterity, int intelligence, int charisma) {
+    public Creature(String name, String classe,String image, int agility,int level, int dexterity, int life, int intelligence, int magic, int charisma, int force) {
         this.name = name;
-        this.image = "" +image + ".png";
         this.classe = classe;
+        this.image = "" +image + ".png";
         this.level = level;
         this.life = life;
         this.magic = magic;
